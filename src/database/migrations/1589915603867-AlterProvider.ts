@@ -21,7 +21,7 @@ export class AlterProvider1589915603867 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropForeignKey('appointmenst', 'AppointmentProvider');
+        await queryRunner.dropForeignKey('appointments', 'AppointmentProvider');
         await queryRunner.dropColumn('appointments', 'provider_id');
         await queryRunner.addColumn('appointments', new TableColumn({
             name: 'provider',
