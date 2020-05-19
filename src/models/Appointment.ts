@@ -8,6 +8,10 @@ class Appointment {
     @Column()
     provider_id: string;
 
+    //Cria o relacionamento de Usuarios com os Appointments
+    //Onde Varios(Many) Appointments para um Usuario(One)
+    //Depois faz o JOIN dizendo qual Coluna sera a responsavel pela relacao
+
     @ManyToOne(() => User)
     @JoinColumn({ name: 'provider_id'})
     provider: User;
