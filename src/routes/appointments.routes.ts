@@ -16,7 +16,7 @@ appointmentsRouter.get('/', async (request, response) => {
 
 appointmentsRouter.post('/', async (request, response) => {
     try {
-        const { provider, date } = request.body;
+        const { provider_id, date } = request.body;
 
         const appointmentsRepository = getCustomRepository(AppointmentsRepository);
 
@@ -26,7 +26,7 @@ appointmentsRouter.post('/', async (request, response) => {
 
         const appointment = await createAppointment.execute({
             date: parsedDate,
-            provider,
+            provider_id,
         });
         response.json(appointment);
     } catch (err) {
